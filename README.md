@@ -1,4 +1,4 @@
-# Desafio Front-End
+# Fake Store API CRUD
 
 ## Introdução
 Desenvolvimento de uma aplicação web para gerenciamento de produtos utilizando a API Fake Store API.
@@ -6,10 +6,10 @@ Desenvolvimento de uma aplicação web para gerenciamento de produtos utilizando
 ## Tecnologias Utilizadas
 - **Typescript**
 - **Next.js V.14/V.15** (Com estrutura de pastas `app` e `src`)
-- **Tailwind CSS** e/ou **MUI.Js**
+- **Tailwind CSS**
 - **Jest** (Testes unitários)
 - **Shadcn** (Componentes UI)
-- **Yup/Zod** (Validação de formulários)
+- **Yup** (Validação de formulários)
 - **Storybook** (Documentação de componentes)
 
 ## Funcionalidades Implementadas
@@ -42,17 +42,15 @@ Desenvolvimento de uma aplicação web para gerenciamento de produtos utilizando
 O projeto possui cobertura de testes utilizando Jest.
 - Para rodar os testes:
   ```sh
-  npm run test  # ou yarn test
+     "test": "jest", # npm run test
+     "test:watch": "jest --watch", # npm run test:watch
   ```
 - Para verificar a cobertura de testes:
   ```sh
-  npm run test:coverage  # ou yarn test:coverage
+  "test:coverage": "jest --coverage", # npm run test:coverage
   ```
 ### **Cobertura Atual**
-| Arquivo | % Stmts | % Branch | % Funcs | % Lines |
-|---------|--------|---------|--------|--------|
-| All files | 100% | 90.56% | 78.57% | 100% |
-| components | 100% | 90.9% | 76.92% | 100% |
+![image](https://github.com/user-attachments/assets/49c41076-5915-466c-892a-e87902ec3cf0)
 
 ## Documentação com Storybook
 O projeto inclui documentação de componentes via **Storybook**.
@@ -60,6 +58,7 @@ O projeto inclui documentação de componentes via **Storybook**.
   ```sh
   npm run storybook  # ou yarn storybook
   ```
+![image](https://github.com/user-attachments/assets/0ec23a6e-9062-43f5-a809-6953201e48e4)
 
 ## Estrutura do Projeto
 ```
@@ -73,14 +72,15 @@ O projeto inclui documentação de componentes via **Storybook**.
 |   |-- styles/
 |   |-- lib/
 |-- .storybook/
-|-- tests/
 |-- public/
 |-- README.md
 ```
 
 ## Prints da Interface
-![Tela Inicial](https://via.placeholder.com/600x300?text=Home+Page)
-![Detalhes do Produto](https://via.placeholder.com/600x300?text=Detalhes+do+Produto)
+![image](https://github.com/user-attachments/assets/2026d2d3-81af-4941-9b74-3e650471336c)
+
+![image](https://github.com/user-attachments/assets/70687908-f1c5-435a-8359-3d7e5cccad49)
+
 
 ## Critérios de Avaliação
 1. **Funcionalidade**: Implementação correta de todos os requisitos.
