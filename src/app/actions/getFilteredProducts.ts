@@ -10,24 +10,34 @@ export async function getFilteredProducts(
 ) {
   try {
     const allProducts = await getProducts(filters.category || "", filters.priceRange || "");
-    
+
     let filteredProducts = allProducts;
 
+    // Filtrar por categoria, se aplicável
     if (filters.category) {
       filteredProducts = filteredProducts.filter(
         (p: { category: string | undefined }) => p.category === filters.category
       );
     }
 
+    // Priorizar produtos com rate acima de 4.5
+    filteredProducts.sort((a: { rating: { rate: number } }, b: { rating: { rate: number } }) => {
+      const aPriority = a.rating?.rate > 4.5 ? -1 : 1;
+      const bPriority = b.rating?.rate > 4.5 ? -1 : 1;
+
+      return aPriority - bPriority;
+    });
+
+    // Ordenar por preço, se necessário
     if (filters.sortOrder) {
       filteredProducts.sort((a: { price: number }, b: { price: number }) => {
         return filters.sortOrder === "asc" ? a.price - b.price : b.price - a.price;
       });
     }
 
+    // Paginação
     const startIndex = (page - 1) * ITEMS_PER_PAGE;
     const paginatedProducts = filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-
     const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
 
     return {

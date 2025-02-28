@@ -81,6 +81,7 @@ O projeto inclui documentação de componentes via **Storybook**.
 
 ![image](https://github.com/user-attachments/assets/70687908-f1c5-435a-8359-3d7e5cccad49)
 
+
 ## Critérios de Avaliação
 1. **Funcionalidade**: Implementação correta de todos os requisitos.
 2. **Código**: Estrutura organizada, SOLID, e bem documentada.

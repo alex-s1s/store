@@ -1,4 +1,3 @@
-// components/pagination.tsx
 "use client";
 
 import {
@@ -51,7 +50,7 @@ export function CustomPagination({ totalPages }: PaginationProps) {
   };
 
   return (
-    <Pagination className="mt-8">
+    <Pagination className="mt-8" aria-label="pagination">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
