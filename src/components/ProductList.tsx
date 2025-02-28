@@ -17,7 +17,7 @@ export default async function ProductList({
 
   return (
     <section className="">
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <ul aria-label="product list" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product: Product) => (
           <ProductCard key={product.id} {...product} />
         ))}

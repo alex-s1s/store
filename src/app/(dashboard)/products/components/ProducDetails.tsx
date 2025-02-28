@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Product } from "@/types/product";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import ConfirmDialog from "./ConfirmDialog";
@@ -14,8 +15,11 @@ export default function ProductDetails({ product, categories }: { product: Produ
   const [open, setOpen] = useState(false);
 
   const handleDelete = () => {
-    toast.info("Produto excluído com sucesso!");
-    setShowConfirm(false);
+    toast.info('Produto excluído com sucesso!', {
+      description: `Produto: ${product.title}`,
+      duration: 3000,
+    });
+    setTimeout(() => redirect("/"), 1000);
   };
 
   return (

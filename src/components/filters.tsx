@@ -102,8 +102,8 @@ export default function Filters() {
           </Select>
         </div>
 
-        <div className="flex gap-2 sm:gap-4 mt-4 sm:mt-0">
-          {searchParams.size !== 0 && (
+        {searchParams.size !== 0 && (
+          <div className="flex gap-2 sm:gap-4 mt-4 sm:mt-0">
             <Button
               onClick={handleClearFilters}
               variant="outline"
@@ -111,15 +111,15 @@ export default function Filters() {
             >
               Limpar
             </Button>
-          )}
-          <Button
-            onClick={() => router.push("/")}
-            variant="destructive"
-            className="sm:hidden flex items-center justify-center"
-          >
-            <X size={18} />
-          </Button>
-        </div>
+            <Button
+              onClick={() => router.push("/")}
+              variant="destructive"
+              className="sm:hidden flex items-center justify-center"
+            >
+              <X size={18} />
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

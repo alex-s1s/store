@@ -46,17 +46,13 @@ export default function ProductForm({ categories, onClose, initialData, id }: Pr
     const actionName = isCreating ? "criado" : "atualizado";
 
     try {
-      const result = await action(data, isCreating ? undefined : id);
+      await action(data, isCreating ? undefined : id);
       toast.success(`Produto ${actionName} com sucesso! ✅`, {
         description: `Detalhes:
       Nome: ${data.title}
       Preço: R$${data.price.toFixed(2).replace(".", ",")}
       Categoria: ${data.category}`,
         duration: 3000,
-        action: {
-          label: "Desfazer",
-          onClick: () => console.log(`Tentativa de reverter ${actionName}: ${data.title}`),
-        },
       });
       onClose();
       setTimeout(() => redirect("/"), 1000);
@@ -94,7 +90,7 @@ export default function ProductForm({ categories, onClose, initialData, id }: Pr
           className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
         />
         {errors.title && (
-          <p className="text-red-500 dark:text-red-400 text-sm">{errors.title.message}</p>
+          <p role="alert" className="text-red-500 dark:text-red-400 text-sm">{errors.title.message}</p>
         )}
       </div>
 
@@ -108,7 +104,7 @@ export default function ProductForm({ categories, onClose, initialData, id }: Pr
           className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
         />
         {errors.description && (
-          <p className="text-red-500 dark:text-red-400 text-sm">{errors.description.message}</p>
+          <p role="alert" className="text-red-500 dark:text-red-400 text-sm">{errors.description.message}</p>
         )}
       </div>
 
@@ -124,7 +120,7 @@ export default function ProductForm({ categories, onClose, initialData, id }: Pr
           className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
         />
         {errors.price && (
-          <p className="text-red-500 dark:text-red-400 text-sm">{errors.price.message}</p>
+          <p role="alert" className="text-red-500 dark:text-red-400 text-sm">{errors.price.message}</p>
         )}
       </div>
 
@@ -152,7 +148,7 @@ export default function ProductForm({ categories, onClose, initialData, id }: Pr
           </SelectContent>
         </Select>
         {errors.category && (
-          <p className="text-red-500 dark:text-red-400 text-sm">{errors.category.message}</p>
+          <p role="alert" className="text-red-500 dark:text-red-400 text-sm">{errors.category.message}</p>
         )}
       </div>
 
@@ -167,7 +163,7 @@ export default function ProductForm({ categories, onClose, initialData, id }: Pr
           className="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100"
         />
         {errors.image && (
-          <p className="text-red-500 dark:text-red-400 text-sm">{errors.image.message}</p>
+          <p role="alert" className="text-red-500 dark:text-red-400 text-sm">{errors.image.message}</p>
         )}
       </div>
 
@@ -184,6 +180,7 @@ export default function ProductForm({ categories, onClose, initialData, id }: Pr
           type="submit"
           disabled={isSubmitting}
           className="bg-blue-600 dark:bg-blue-700 text-white hover:bg-blue-700 dark:hover:bg-blue-800"
+          data-testid="submit-button"
         >
           {isSubmitting ? "Salvando..." : "Salvar"}
         </Button>
