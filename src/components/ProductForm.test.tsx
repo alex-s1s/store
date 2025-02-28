@@ -34,7 +34,6 @@ describe("ProductForm", () => {
     jest.clearAllMocks();
   });
 
-  /** Test 1: Rendering with initial values */
   test("renders form with initial values when editing", () => {
     const initialData = {
       title: "Test Product",
@@ -61,7 +60,6 @@ describe("ProductForm", () => {
     );
   });
 
-  /** Test 2: Validation errors on empty submission */
   test("shows validation errors when submitting an empty form", async () => {
     render(<ProductForm categories={mockCategories} onClose={mockOnClose} />);
 
@@ -78,7 +76,6 @@ describe("ProductForm", () => {
     });
   });
 
-  /** Test 3: Successful submission for new product */
   test("submits form successfully when creating a new product", async () => {
     // Mock scrollIntoView
     window.HTMLElement.prototype.scrollIntoView = jest.fn();
@@ -99,7 +96,6 @@ describe("ProductForm", () => {
       target: { value: "50" },
     });
 
-    // Select category using the right approach for Radix UI Select
     const selectTrigger = screen.getByRole("combobox");
     fireEvent.click(selectTrigger);
 
@@ -109,7 +105,6 @@ describe("ProductForm", () => {
       expect(selectItems.length).toBeGreaterThan(0);
     });
 
-    // Use a more specific selector - find the SelectItem with role="option" that contains the text
     const option = screen.getAllByRole("option").find(
       item => item.textContent === "Eletrônicos"
     );
@@ -125,7 +120,6 @@ describe("ProductForm", () => {
     const submitButton = screen.getByTestId("submit-button");
     fireEvent.click(submitButton);
 
-    // Assert that saveProduct was called with the right data
     await waitFor(() => {
       expect(saveProduct).toHaveBeenCalledWith(
         {
@@ -141,7 +135,6 @@ describe("ProductForm", () => {
     });
   });
 
-  /** Test 4: Successful submission for updating a product */
   test("submits form successfully when updating an existing product", async () => {
     const initialData = {
       title: "Old Product",
@@ -161,7 +154,6 @@ describe("ProductForm", () => {
       />
     );
 
-    // Update some fields
     fireEvent.change(screen.getByLabelText("Título"), {
       target: { value: "Updated Product" },
     });
@@ -191,9 +183,7 @@ describe("ProductForm", () => {
     });
   });
 
-  /** Test 5: Error handling on submission failure */
   test("displays error toast when submission fails", async () => {
-    // Mock scrollIntoView which is not implemented in JSDOM
     window.HTMLElement.prototype.scrollIntoView = jest.fn();
 
     (saveProduct as jest.Mock).mockRejectedValue(
@@ -202,7 +192,6 @@ describe("ProductForm", () => {
 
     render(<ProductForm categories={mockCategories} onClose={mockOnClose} />);
 
-    // Fill the form
     fireEvent.change(screen.getByLabelText("Título"), {
       target: { value: "New Product" },
     });
@@ -223,14 +212,12 @@ describe("ProductForm", () => {
       expect(selectItems.length).toBeGreaterThan(0);
     });
 
-    // Use a more specific selector - find the SelectItem with role="option" that contains the text
     const option = screen.getAllByRole("option").find(
       item => item.textContent === "Eletrônicos"
     );
     expect(option).toBeTruthy();
     fireEvent.click(option!);
 
-    // Set image URL
     fireEvent.change(screen.getByLabelText("URL da Imagem"), {
       target: { value: "https://example.com/new.jpg" },
     });
@@ -249,7 +236,6 @@ describe("ProductForm", () => {
     });
   });
 
-  /** Test 6: Cancel button triggers onClose */
   test("calls onClose when cancel button is clicked", () => {
     render(<ProductForm categories={mockCategories} onClose={mockOnClose} />);
 

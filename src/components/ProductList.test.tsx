@@ -18,6 +18,7 @@ const mockProducts: Product[] = [
     image: "https://example.com/image1.jpg",
     rating: {
       rate: 4.5,
+      count: 10,
     },
   },
   {
@@ -29,6 +30,7 @@ const mockProducts: Product[] = [
     image: "https://example.com/image2.jpg",
     rating: {
       rate: 4.5,
+      count: 10,
     },
   },
 ];
@@ -80,9 +82,7 @@ describe("ProductList", () => {
 
     render(await ProductList({ searchParams: Promise.resolve({}) }));
     await waitFor(() => {
-      // Busca o elemento de navegação que representa a paginação via seu aria-label
       const paginationNav = screen.getByRole("navigation", { name: /pagination/i });
-      // Dentro do elemento de paginação, verifica se o número "3" está presente
       expect(within(paginationNav).getByText("3")).toBeInTheDocument();
     });
   });
