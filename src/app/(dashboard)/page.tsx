@@ -20,7 +20,9 @@ export default async function Home({
         </h2>
         <AddProductModal categories={categories} />
       </div>
-      <Filters />
+      <Suspense>
+        <Filters />
+      </Suspense>
       <Suspense fallback={<Skeleton />}>
         <ProductList searchParams={searchParams} />
       </Suspense>

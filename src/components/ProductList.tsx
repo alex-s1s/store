@@ -1,5 +1,6 @@
 import { getFilteredProducts } from "@/app/actions/getFilteredProducts";
 import { Product } from "@/types/product";
+import { Suspense } from "react";
 import { CustomPagination } from "./CustomPagination";
 import ProductCard from "./ProductCard";
 
@@ -24,7 +25,9 @@ export default async function ProductList({
       </ul>
 
       <div className="mt-8 flex justify-center">
-        <CustomPagination totalPages={totalPages} />
+        <Suspense>
+          <CustomPagination totalPages={totalPages} />
+        </Suspense>
       </div>
     </section>
   );
