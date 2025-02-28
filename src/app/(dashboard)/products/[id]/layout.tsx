@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const Layout = async ({ children }: { children: ReactNode }) => {
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="min-h-screen flex flex-col sm:px-20">
       {children}
     </main>
   );

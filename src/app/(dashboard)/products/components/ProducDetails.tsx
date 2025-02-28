@@ -23,7 +23,7 @@ export default function ProductDetails({ product, categories }: { product: Produ
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div className="container mx-auto py-8 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-2/3 max-w-[600px] mx-auto aspect-[4/3] md:aspect-[3/2] relative overflow-hidden rounded-lg shadow-xl">
           <Image
