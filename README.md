@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Desafio Front-End
 
-## Getting Started
+## Introdução
+Desenvolvimento de uma aplicação web para gerenciamento de produtos utilizando a API Fake Store API.
 
-First, run the development server:
+## Tecnologias Utilizadas
+- **Typescript**
+- **Next.js V.14/V.15** (Com estrutura de pastas `app` e `src`)
+- **Tailwind CSS** e/ou **MUI.Js**
+- **Jest** (Testes unitários)
+- **Shadcn** (Componentes UI)
+- **Yup/Zod** (Validação de formulários)
+- **Storybook** (Documentação de componentes)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Funcionalidades Implementadas
+- [x] Listagem de produtos paginada.
+- [x] Filtro de produtos por categoria.
+- [x] Ordenação de produtos por preço.
+- [x] Nome dos produtos limitado a 30 caracteres.
+- [x] Destaque para produtos com rating acima de 4.5.
+- [x] Bloqueio de edição da categoria de um produto.
+- [x] Visualização detalhada de um produto.
+- [x] Confirmação antes da exclusão de produtos.
+
+## Instalação e Execução
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
+   ```
+2. Instale as dependências:
+   ```sh
+   npm install  # ou yarn install
+   ```
+3. Inicie o servidor de desenvolvimento:
+   ```sh
+   npm run dev  # ou yarn dev
+   ```
+4. Acesse a aplicação em `http://localhost:3000`
+
+## Testes Unitários
+O projeto possui cobertura de testes utilizando Jest.
+- Para rodar os testes:
+  ```sh
+  npm run test  # ou yarn test
+  ```
+- Para verificar a cobertura de testes:
+  ```sh
+  npm run test:coverage  # ou yarn test:coverage
+  ```
+### **Cobertura Atual**
+| Arquivo | % Stmts | % Branch | % Funcs | % Lines |
+|---------|--------|---------|--------|--------|
+| All files | 100% | 90.56% | 78.57% | 100% |
+| components | 100% | 90.9% | 76.92% | 100% |
+
+## Documentação com Storybook
+O projeto inclui documentação de componentes via **Storybook**.
+- Para rodar o Storybook:
+  ```sh
+  npm run storybook  # ou yarn storybook
+  ```
+
+## Estrutura do Projeto
+```
+/
+|-- src/
+|   |-- components/
+|   |   |-- ui/
+|   |   |   |-- Button.tsx
+|   |   |   |-- Input.tsx
+|   |-- pages/
+|   |-- styles/
+|   |-- lib/
+|-- .storybook/
+|-- tests/
+|-- public/
+|-- README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Prints da Interface
+![Tela Inicial](https://via.placeholder.com/600x300?text=Home+Page)
+![Detalhes do Produto](https://via.placeholder.com/600x300?text=Detalhes+do+Produto)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Critérios de Avaliação
+1. **Funcionalidade**: Implementação correta de todos os requisitos.
+2. **Código**: Estrutura organizada, SOLID, e bem documentada.
+3. **Documentação**: README explicativo e Storybook para componentes.
+4. **Boas Práticas**: Versionamento adequado, testes unitários, e commits bem documentados.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Submissão
+1. Criar um repositório público no **GitHub**.
+2. Implementar todos os requisitos.
+3. Documentar no **README.md**.
+4. Submeter o link para avaliação.
