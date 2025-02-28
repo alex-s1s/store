@@ -15,11 +15,17 @@ export const createproduct = async (products: ProductFormGroupData) => {
   return response.data;
 };
 
+export const updateProduct = async (products: ProductFormGroupData & { id?: number }) => {
+  const { id } = products;
+  console.log(id);
+  const response = await api.put(`/products/${id}`, products);
+  return response.data;
+};
+
 export const getCategories = async () => {
   const response = await api.get('/products/categories');
   return response.data;
 };
-
 
 
 export const getProductById = async (id: string) => {

@@ -16,19 +16,11 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 flex justify-center w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center justify-between">
+      <div className="container px-28 sm:py-8 w-full max-w-7xl flex h-14 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="font-bold text-lg">
             My Store
           </Link>
-          <nav className="flex items-center gap-4 text-sm">
-            <Link href="/products" className="hover:text-primary">
-              Produtos
-            </Link>
-            <Link href="/categories" className="hover:text-primary">
-              Categorias
-            </Link>
-          </nav>
         </div>
 
         <DropdownMenu>
@@ -39,7 +31,7 @@ export function Header() {
               <span className="sr-only">Alternar tema</span>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent className="bg-white dark:bg-gray-800" align="end">
             <DropdownMenuItem onClick={() => setTheme("light")}>
               <Sun className="mr-2 h-4 w-4" />
               Claro

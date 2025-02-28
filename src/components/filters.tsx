@@ -52,7 +52,7 @@ export default function Filters() {
   };
 
   return (
-    <div className="mb-8">
+    <div className="my-3 md:mb-8 flex flex-col justify-end">
       <Button
         onClick={() => router.push("/?filtersOpen=true")}
         className="sm:hidden flex items-center gap-2"
@@ -103,13 +103,6 @@ export default function Filters() {
         </div>
 
         <div className="flex gap-2 sm:gap-4 mt-4 sm:mt-0">
-          <Button
-            onClick={() => handleApplyFilters(category, sortOrder)}
-            className="flex-1 sm:flex-none"
-            disabled={isLoading}
-          >
-            {isLoading ? "Aplicando..." : "Aplicar"}
-          </Button>
           {searchParams.size !== 0 && (
             <Button
               onClick={handleClearFilters}
